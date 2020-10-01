@@ -14,5 +14,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('/tasks');
 });
+
+Route::get('/tasks','TaskController@index');
+Route::post('/tasks','TaskController@store');
+Route::delete('/tasks/{task}','TaskController@destroy');
