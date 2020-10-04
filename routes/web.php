@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TaskController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,6 +18,6 @@ Route::get('/', function () {
     return redirect('/tasks');
 });
 
-Route::get('/tasks','TaskController@index');
-Route::post('/tasks','TaskController@store');
-Route::delete('/tasks/{task}','TaskController@destroy');
+Route::get('/tasks',[TaskController::class,'index']);
+Route::post('/tasks',[TaskController::class,'store']);
+Route::delete('/tasks/{task}',[TaskController::class,'destroy']);
